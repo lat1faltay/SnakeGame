@@ -9,7 +9,6 @@ public class MainWindow extends JFrame{
 	
 	private int mWidth = 600;
 	private int mHeight = 600;
-	
 	private static MainWindow mWindow = null;
 	
 	
@@ -17,6 +16,7 @@ public class MainWindow extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		SetDimension(mWidth, mHeight);
 		setResizable(false);
+		setTitle("Snake Game");
 		
 		Snake snake = new Snake();
 		add(snake);
