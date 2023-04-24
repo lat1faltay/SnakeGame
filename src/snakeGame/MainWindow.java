@@ -10,9 +10,24 @@ public class MainWindow extends JFrame{
 	private int mWidth = 600;
 	private int mHeight = 600;
 	
-	MainWindow() {
+	private static MainWindow mWindow = null;
+	
+	
+	private MainWindow() {
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		SetDimension(mWidth, mHeight);
+		setResizable(false);
+		
 	}
+	
+	
+	public static MainWindow GetWindow() {
+		if(mWindow ==null) {
+			mWindow = new MainWindow();
+		}
+		return new MainWindow();
+	}
+	
 	
 	public void SetDimension(int width, int height) {
 		Dimension Dim = Toolkit.getDefaultToolkit().getScreenSize();
