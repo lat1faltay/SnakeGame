@@ -10,10 +10,17 @@ import javax.swing.*;
 
 public class Box extends JLabel {
 	
-	public int mWidth = 20;
+	
 	Box(){
 		setBounds(100,100,mWidth,mWidth);
 	}
+	
+	
+	public int mMove = Direction.LEFT;
+	
+	
+	public int mWidth = 20;
+	
 	
 	@Override
 	public void paint(Graphics g) {
@@ -52,4 +59,31 @@ public class Box extends JLabel {
 		PosY += mWidth;
 		setBounds(PosX,PosY,mWidth,mWidth);
 	}
+	
+	public void Move() {
+		if(mMove == Direction.LEFT) {
+			Left();
+		}else if(mMove == Direction.RIGHT) {
+			Right();
+		}else if(mMove == Direction.UP) {
+			Up();
+		}else if(mMove == Direction.DOWN) {
+			Down();
+		}
+	}
+	
+	public Box CreateBox() {
+		Box box = new Box();
+		int X = getX();
+		int Y = getY();
+		
+		box.setBounds(X,Y,mWidth, mWidth );
+		box.mMove = -mMove;
+		box.Move();
+		box.mMove = mMove;
+		
+		
+		return box;
+	}
+	
 }
