@@ -25,7 +25,7 @@ public class MainWindow extends JFrame{
 		if(mWindow ==null) {
 			mWindow = new MainWindow();
 		}
-		return new MainWindow();
+		return mWindow;
 	}
 	
 	
