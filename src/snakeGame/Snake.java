@@ -52,13 +52,22 @@ public class Snake extends JLabel {
 				mHead.setBounds(PosX,PosY,mHead.mWidth, mHead.mWidth);
 			}
 			if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-				
+				int PosX = mHead.getX();
+				int PosY = mHead.getY();
+				PosX += mHead.mWidth;
+				mHead.setBounds(PosX,PosY,mHead.mWidth, mHead.mWidth);	
 			}
 			if(e.getKeyCode() == KeyEvent.VK_UP) {
-				
+				int PosX = mHead.getX();
+				int PosY = mHead.getY();
+				PosY -= mHead.mWidth;
+				mHead.setBounds(PosX,PosY,mHead.mWidth, mHead.mWidth);
 			}
 			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-				
+				int PosX = mHead.getX();
+				int PosY = mHead.getY();
+				PosY += mHead.mWidth;
+				mHead.setBounds(PosX,PosY,mHead.mWidth, mHead.mWidth);	
 			}
 			
 		}
