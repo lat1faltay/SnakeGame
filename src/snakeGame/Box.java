@@ -27,4 +27,29 @@ public class Box extends JLabel {
 		g2.fill(rect);
 	}
 	
+	public void Left() {
+		int PosX = getX();
+		int PosY = getY();
+		PosX -= mWidth;
+		setBounds(PosX,PosY,mWidth,mWidth);
+	}
+	public void Right() {
+		int PosX = getX();
+		int PosY = getY();
+		PosX += mWidth;
+		setBounds(PosX,PosY,mWidth,mWidth);
+	}
+	public void Up() {
+		int PosX = getX();
+		int PosY = getY();
+		PosY -= mWidth;
+		setBounds(PosX,PosY,mWidth,mWidth);
+	}
+	
+	public void Down() {
+		int PosX = getX();
+		int PosY = getY();
+		PosY += mWidth;
+		setBounds(PosX,PosY,mWidth,mWidth);
+	}
 }

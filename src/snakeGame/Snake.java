@@ -46,28 +46,16 @@ public class Snake extends JLabel {
 		public void keyPressed(KeyEvent e) {
 			// TODO Auto-generated method stub
 			if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-				int PosX = mHead.getX();
-				int PosY = mHead.getY();
-				PosX -= mHead.mWidth;
-				mHead.setBounds(PosX,PosY,mHead.mWidth, mHead.mWidth);
+				mHead.Left();
 			}
 			if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-				int PosX = mHead.getX();
-				int PosY = mHead.getY();
-				PosX += mHead.mWidth;
-				mHead.setBounds(PosX,PosY,mHead.mWidth, mHead.mWidth);	
+				mHead.Right();
 			}
 			if(e.getKeyCode() == KeyEvent.VK_UP) {
-				int PosX = mHead.getX();
-				int PosY = mHead.getY();
-				PosY -= mHead.mWidth;
-				mHead.setBounds(PosX,PosY,mHead.mWidth, mHead.mWidth);
+				mHead.Up();
 			}
 			if(e.getKeyCode() == KeyEvent.VK_DOWN) {
-				int PosX = mHead.getX();
-				int PosY = mHead.getY();
-				PosY += mHead.mWidth;
-				mHead.setBounds(PosX,PosY,mHead.mWidth, mHead.mWidth);	
+				mHead.Down();
 			}
 			
 		}
