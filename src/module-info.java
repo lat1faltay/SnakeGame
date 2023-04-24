@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author ELEYSEC
- *
- */
-module snakeGame {
-}
