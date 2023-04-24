@@ -18,6 +18,9 @@ public class MainWindow extends JFrame{
 		SetDimension(mWidth, mHeight);
 		setResizable(false);
 		
+		Snake snake = new Snake();
+		add(snake);
+		
 	}
 	
 	

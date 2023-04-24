@@ -7,5 +7,4 @@ public class Main {
 		MainWindow window = MainWindow.GetWindow();	
 		window.setVisible(true);
 	}
-
 }
