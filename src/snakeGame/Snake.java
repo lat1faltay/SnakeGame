@@ -57,12 +57,34 @@ public class Snake extends JLabel {
 	
 	public boolean Crash() { 
 		int frame = 10;
-		int weight = getWidth();
+		int width = getWidth();
 		int height = getHeight();
 		
-		if(mHead.getX()<= 10) {
+		if(mHead.getX() <= 10) {
 			return true;
 		}
+		if(mHead.getX() + mHead.mWidth >= width - frame) {
+			return true;
+		}
+		
+		if(mHead.getY() <= 10) {
+			return true;
+		}
+		if(mHead.getY() + mHead.mWidth >= height - frame) {
+			return true;
+		}
+		
+		
+		for(int i=1; i<List.size(); i++) {
+			int X = List.get(i).getX();
+			int Y = List.get(i).getY();
+			
+			if((X==mHead.getX()) && (Y==mHead.getY())) {
+				return true;
+			}
+			
+		}
+		
 		return false;
 	}
 
@@ -72,9 +94,9 @@ public class Snake extends JLabel {
 		super.paint(g);
 		
 		Graphics2D g2 = (Graphics2D)g;
-		Rectangle2D rect = new Rectangle2D.Double(5,5,getWidth()-10, getHeight()-10);
+		Rectangle2D rect = new Rectangle2D.Double(10,10,getWidth()-20, getHeight()-20);
 		g2.setColor(Color.red);
-		g2.setStroke(new BasicStroke(10));
+		g2.setStroke(new BasicStroke(20));
 		g2.draw(rect);
 		
 		
@@ -127,10 +149,10 @@ public class Snake extends JLabel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
+			MoveAll(); 
 			if(Crash()) {
 				mTimer.stop();
 			}
-			MoveAll(); 
 		}
 		
 	}
