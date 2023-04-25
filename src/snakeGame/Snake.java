@@ -20,11 +20,12 @@ public class Snake extends JLabel {
 	public Box mHead = new Box();
 	public Timer mTimer = null;
 	public ArrayList<Box> List = new ArrayList<Box>();
-	
+	public Bait mBait = new Bait();
 	
 	public Snake() {
 		// TODO Auto-generated constructor stub
 		add(mHead);
+		add(mBait);
 		addKeyListener(new KeyboardControl());
 		setFocusable(true);
 		mTimer = new Timer(100, new TimerControl());
