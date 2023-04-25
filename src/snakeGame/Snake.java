@@ -11,19 +11,22 @@ import java.awt.event.KeyListener;
 import java.awt.geom.Rectangle2D;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.*;
 
 
 public class Snake extends JLabel {
 	
-	public Box mHead = new Box();
 	public Timer mTimer = null;
-	public ArrayList<Box> List = new ArrayList<Box>();
+	public Random mRandom =null;
+	public Box mHead = new Box();
 	public Bait mBait = new Bait();
-	
+	public ArrayList<Box> List = new ArrayList<Box>();
+
 	public Snake() {
 		// TODO Auto-generated constructor stub
+		mRandom = new Random(System.currentTimeMillis());
 		add(mHead);
 		add(mBait);
 		addKeyListener(new KeyboardControl());
@@ -35,7 +38,6 @@ public class Snake extends JLabel {
 		for(int i = 1; i < 10; i++) {
 			AddQueue();
 		}
-		
 	}
 	
 	public void AddQueue() {
@@ -44,6 +46,25 @@ public class Snake extends JLabel {
 		add(box);
 	}
 	
+	public void BaitAdd() {
+		int width = getWidth()- 30 - mBait.mWidth;
+		int height = getHeight() - 30 - mBait.mWidth;
+		
+		int posX = 10 + Math.abs(mRandom.nextInt()) % width;
+		int posY = 10 + Math.abs(mRandom.nextInt()) % height;
+		posX = posX - posX%20;
+		posY = posY - posY %20;
+		
+		for(int i = 0; i < List.size(); i++) {
+			if((posX == List.get(i).getX()) && (posY == List.get(i).getY())) {
+				BaitAdd();
+				return;
+			}
+		}
+		
+		mBait.setPosition(posX, posY);
+		
+	}
 	
 	public void MoveAll() {
 		for(int i = List.size()-1; i>0 ; i--) {
@@ -84,6 +105,11 @@ public class Snake extends JLabel {
 				return true;
 			}
 			
+		}
+		
+		if((mBait.getX() == mHead.getX()) && (mBait.getY()==mHead.getY())) {
+			AddQueue();
+			BaitAdd();
 		}
 		
 		return false;
