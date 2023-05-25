@@ -61,7 +61,6 @@ public class Snake extends JLabel {
 		}
 		
 		mBait.setPosition(posX, posY);
-		
 	}
 	
 	public void MoveAll() {
