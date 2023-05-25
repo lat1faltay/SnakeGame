@@ -48,7 +48,6 @@ public class Snake extends JLabel {
 	public void BaitAdd() {
 		int width = getWidth()- 30 - mBait.mWidth;
 		int height = getHeight() - 30 - mBait.mWidth;
-		
 		int posX = 10 + Math.abs(mRandom.nextInt()) % width;
 		int posY = 10 + Math.abs(mRandom.nextInt()) % height;
 		posX = posX - posX%20;
