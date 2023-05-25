@@ -121,8 +121,7 @@ public class Snake extends JLabel {
 		Rectangle2D rect = new Rectangle2D.Double(10,10,getWidth()-20, getHeight()-20);
 		g2.setColor(Color.red);
 		g2.setStroke(new BasicStroke(20));
-		g2.draw(rect);
-		
+		g2.draw(rect);	
 		
 	}
 	
